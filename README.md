@@ -48,10 +48,6 @@ The repository now contains a `Jenkinsfile` at the project root that defines the
 ```bash
 tictactoe/
 │
-├── .github/
-│   └── workflows/
-│       └── main.yml
-│
 ├── public/
 ├── screenshot/
 │   ├── jenkins-dashboard.png
