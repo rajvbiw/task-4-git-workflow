@@ -2,9 +2,35 @@
 
 ## 📌 Project Overview
 
-This project demonstrates a complete CI/CD (Continuous Integration and Continuous Deployment) pipeline using GitHub Actions, Docker, and DockerHub for a TicTacToe web application.
+This project demonstrates a complete CI/CD (Continuous Integration and Continuous Deployment) pipeline using Jenkins, Docker, and Git for a TicTacToe web application.
 
-The application source code is containerized using Docker and automatically built and pushed to DockerHub whenever changes are pushed to the `main` branch.
+## ✅ Objective
+
+Set up a basic Jenkins pipeline to automate the process of building and deploying an application.
+
+## 🧰 Tools
+
+* Jenkins
+* Docker
+* Git
+
+## 🎯 Deliverables
+
+* A Jenkins pipeline file (`Jenkinsfile`) to build and deploy the app.
+
+## 🔧 Steps performed
+
+1. Installed Jenkins or used an existing Jenkins instance.
+2. Created a `Jenkinsfile` in the project repository with pipeline stages for checkout, build, test, and deploy.
+3. Configured the Jenkins job to use the repository URL `https://github.com/rajvbiw/day-2-jenkins-tic-tac-toe.git` and to trigger the pipeline on every commit.
+4. Added stages in the pipeline:
+   * `Checkout` to clone the repository.
+   * `Build Docker Image` to build the application container.
+   * `Test` to run verification commands.
+   * `Deploy` to run the Docker container.
+5. Verified the pipeline by pushing changes to the repository and checking the Jenkins dashboard for successful execution.
+
+The repository now contains a `Jenkinsfile` at the project root that defines these automated steps.
 
 ---
 
@@ -27,6 +53,9 @@ tictactoe/
 │       └── main.yml
 │
 ├── public/
+├── screenshot/
+│   ├── jenkins-dashboard.png
+│   └── jenkins-console-output.png
 ├── server.js
 ├── Dockerfile
 ├── package.json
@@ -157,6 +186,19 @@ The pipeline automatically builds and deploys the Docker image whenever code is 
 
 ---
 
-# 👨‍💻 Author
+# �️ Screenshots
+
+The following screenshots show the Jenkins pipeline in action:
+
+* `screenshot/jenkins-dashboard.png` – Jenkins job dashboard and build status.
+* `screenshot/jenkins-console-output.png` – Jenkins console output for the pipeline run.
+
+![Jenkins Dashboard](screenshot/jenkins-dashboard.png)
+
+![Jenkins Console Output](screenshot/jenkins-console-output.png)
+
+---
+
+# �👨‍💻 Author
 
 Raj Birari
