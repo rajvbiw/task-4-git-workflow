@@ -3,7 +3,19 @@ pipeline {
 
     stages {
 
-        stage('Build') {
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image'
                 sh 'docker build -t internship-task-app .'
@@ -21,16 +33,24 @@ pipeline {
             steps {
                 echo 'Deploying container'
 
-                sh 'docker stop internship-container || true'
-                sh 'docker rm internship-container || true'
+                sh '''
+                    docker stop internship-container || true
+                    docker rm internship-container || true
+                '''
 
                 sh '''
-                docker run -d \
-                -p 3000:3000 \
-                --name internship-container \
-                internship-task-app
+                    docker run -d \
+                    -p 3000:3000 \
+                    --name internship-container \
+                    internship-task-app
                 '''
             }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline finished'
         }
     }
 }
