@@ -11,7 +11,15 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                checkout scm
+                deleteDir()
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'CleanBeforeCheckout']],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[url: 'https://github.com/rajvbiw/day-2-jenkins-tic-tac-toe.git']]
+                ])
             }
         }
 
