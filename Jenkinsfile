@@ -2,21 +2,34 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/rajvbiw/day-2-jenkins-tic-tac-toe.git'
-            }
-        }
 
         stage('Build') {
             steps {
-                echo 'Building project...'
+                echo 'Building Docker image'
+                sh 'docker build -t internship-task-app .'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Running tests'
+                sh 'echo "No tests defined"'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying container'
+
+                sh 'docker stop internship-container || true'
+                sh 'docker rm internship-container || true'
+
+                sh '''
+                docker run -d \
+                -p 3000:3000 \
+                --name internship-container \
+                internship-task-app
+                '''
             }
         }
     }
