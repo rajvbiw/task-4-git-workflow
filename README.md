@@ -1,200 +1,179 @@
-# TicTacToe CI/CD DevOps Project
+# 🚀 DevOps Internship - Task 4
 
-## 📌 Project Overview
+## Git Workflow Management Project
 
-This project demonstrates a complete CI/CD (Continuous Integration and Continuous Deployment) pipeline using Jenkins, Docker, and Git for a TicTacToe web application.
+---
 
-## ✅ Objective
+# 📌 Project Description
 
-Set up a basic Jenkins pipeline to automate the process of building and deploying an application.
+This project was completed as part of the DevOps Internship Task 4.
+The objective of this task is to understand and implement Git best practices in a real DevOps project environment.
 
-## 🧰 Tools
+The project demonstrates:
 
+* Git repository initialization
+* GitHub integration
+* Branch management
+* Feature development workflow
+* Pull Request workflow
+* Merge operations
+* Version tagging
+* Documentation management
+
+---
+
+# 🛠️ Technologies Used
+
+* Git
+* GitHub
 * Jenkins
 * Docker
-* Git
-
-## 🎯 Deliverables
-
-* A Jenkins pipeline file (`Jenkinsfile`) to build and deploy the app.
-
-## 🔧 Steps performed
-
-1. Installed Jenkins or used an existing Jenkins instance.
-2. Created a `Jenkinsfile` in the project repository with pipeline stages for checkout, build, test, and deploy.
-3. Configured the Jenkins job to use the repository URL `https://github.com/rajvbiw/day-2-jenkins-tic-tac-toe.git` and to trigger the pipeline on every commit.
-4. Added stages in the pipeline:
-   * `Checkout` to clone the repository.
-   * `Build Docker Image` to build the application container.
-   * `Test` to run verification commands.
-   * `Deploy` to run the Docker container.
-5. Verified the pipeline by pushing changes to the repository and checking the Jenkins dashboard for successful execution.
-
-The repository now contains a `Jenkinsfile` at the project root that defines these automated steps.
+* Node.js
 
 ---
 
-# 🚀 Technologies Used
+# 📂 Repository Workflow
 
-* Docker
-* GitHub Actions
-* DockerHub
-* GitHub
+The following Git workflow was implemented in this project:
 
----
+```text
+main → Production Branch
+dev → Development Branch
+feature/readme-update → Feature Branch
+```
 
-# 📂 Project Structure
+Workflow Process:
 
-```bash
-tictactoe/
-│
-├── public/
-├── screenshot/
-│   ├── jenkins-dashboard.png
-│   └── jenkins-console-output.png
-├── server.js
-├── Dockerfile
-├── package.json
-├── README.md
-└── tasks.json
+```text
+Feature Branch → Dev Branch → Main Branch
 ```
 
 ---
 
-# ⚙️ CI/CD Workflow
+# 🌿 Branches Created
 
-The CI/CD pipeline is implemented using GitHub Actions.
-
-## Workflow Steps
-
-1. Developer pushes code to GitHub
-2. GitHub Actions workflow automatically triggers
-3. Docker image is built
-4. Docker image is pushed to DockerHub
+| Branch Name           | Purpose                 |
+| --------------------- | ----------------------- |
+| main                  | Production-ready code   |
+| dev                   | Development and testing |
+| feature/readme-update | Feature implementation  |
 
 ---
 
-# 🐳 Docker Setup
+# ⚙️ Git Commands Used
 
-## Build Docker Image
+## Initialize Git Repository
 
 ```bash
-docker build -t tictactoe-app .
+git init
 ```
 
-## Run Docker Container
+## Add Files
 
 ```bash
-docker run -p 3000:3000 tictactoe-app
+git add .
 ```
 
-## Open Application
+## Commit Changes
 
 ```bash
-http://localhost:3000
+git commit -m "Initial commit"
 ```
 
----
-
-# 🔄 GitHub Actions Workflow
-
-The workflow file is located at:
+## Create Branches
 
 ```bash
-.github/workflows/main.yml
+git checkout -b dev
+git checkout -b feature/readme-update
 ```
 
-The workflow performs:
-
-* Source code checkout
-* DockerHub login
-* Docker image build
-* Docker image push
-
----
-
-# 🔐 GitHub Secrets Used
-
-The following GitHub Secrets were configured:
-
-| Secret Name     | Purpose                |
-| --------------- | ---------------------- |
-| DOCKER_USERNAME | DockerHub Username     |
-| DOCKER_PASSWORD | DockerHub Access Token |
-
----
-
-# 📦 DockerHub Repository
-
-Docker images are automatically pushed to DockerHub after successful workflow execution.
-
-Example:
+## Push Code to GitHub
 
 ```bash
-docker.io/rajvbiw/tictactoe-app
+git push -u origin main
+git push -u origin dev
+```
+
+## Merge Branches
+
+```bash
+git merge dev
+```
+
+## Create Git Tag
+
+```bash
+git tag v1.0
+git push origin v1.0
 ```
 
 ---
 
-# 📖 Read and Learn from Documentation
+# 🔀 Pull Request Workflow
 
-## Docker Documentation
+A Pull Request (PR) workflow was followed to merge changes safely.
 
-https://docs.docker.com/
+Steps:
 
-## GitHub Actions Documentation
-
-https://docs.github.com/en/actions
-
-## DockerHub Documentation
-
-https://docs.docker.com/docker-hub/
-
-## Node.js Documentation
-
-https://nodejs.org/en/docs
-
-## GitHub Documentation
-
-https://docs.github.com/
+1. Feature branch created
+2. Changes committed
+3. Feature branch pushed to GitHub
+4. Pull Request created
+5. Code merged into dev branch
+6. Dev branch merged into main branch
 
 ---
 
-# 🎯 What I Learned
+# 🧾 .gitignore Usage
 
-* How to containerize applications using Docker
-* How to automate workflows using GitHub Actions
-* How to build and push Docker images automatically
-* How CI/CD pipelines work in real DevOps environments
-* How to manage GitHub Secrets securely
+A `.gitignore` file was used to ignore unnecessary files such as:
 
----
-
-# ✅ Project Outcome
-
-Successfully implemented a CI/CD pipeline for a TicTacToe web application using:
-
-* Docker
-* GitHub Actions
-* DockerHub
-
-The pipeline automatically builds and deploys the Docker image whenever code is pushed to the main branch.
+```text
+node_modules/
+.env
+*.log
+dist/
+```
 
 ---
 
-# �️ Screenshots
+# 🏷️ Git Tag
 
-The following screenshots show the Jenkins pipeline in action:
+Git Tag created:
 
-* `screenshot/jenkins-dashboard.png` – Jenkins job dashboard and build status.
-* `screenshot/jenkins-console-output.png` – Jenkins console output for the pipeline run.
+```text
+v1.0
+```
 
-![Jenkins Dashboard](screenshot/jenkins-dashboard.png)
-
-![Jenkins Console Output](screenshot/jenkins-console-output.png)
+This tag represents the first stable version of the project.
 
 ---
 
-# �👨‍💻 Author
+# 📚 Learning Outcomes
+
+Through this task, the following concepts were learned:
+
+* Git version control
+* Branching strategy
+* Pull Request workflow
+* Merge operations
+* Git tags
+* Documentation practices
+* Collaboration workflow
+
+---
+
+# 👨‍💻 Author
 
 Raj Birari
+
+---
+
+# ✅ Task Status
+
+✔ Repository Created
+✔ Branches Created
+✔ Pull Request Used
+✔ README Added
+✔ Git Tag Added
+✔ Documentation Completed
